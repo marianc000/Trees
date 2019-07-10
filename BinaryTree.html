@@ -1,0 +1,24 @@
+<script>
+    (async () => {
+        const { BinaryTree } = await import('./js/BinaryTree.mjs');
+        const { BinaryTreeNode } = await import('./js/BinaryTreeNode.mjs');
+
+
+        var n3 = new BinaryTreeNode(10);
+        var n4 = new BinaryTreeNode(40);
+        var n6 = new BinaryTreeNode(45);
+        var n7 = new BinaryTreeNode(75);
+        var n2 = new BinaryTreeNode(41, n3, n4);
+        var n5 = new BinaryTreeNode(50, n6, n7);
+        var n1 = new BinaryTreeNode(42, n2, n5);
+
+        var bt = new BinaryTree(n1);
+        bt.traversePreOrder();
+        console.log("========================================");
+        bt.traverseInOrder();
+        console.log("========================================");
+        bt.traversePostOrder();
+        console.log("========================================");
+        bt.traverseLevelOrder();
+    })();
+</script>
