@@ -42,7 +42,7 @@ BinaryTreePrinter.prototype.traverseLevelOrderCreateLevels = function (root, dee
 }
 
 
-var SPACES_PER_NODE = 3;
+var SPACES_PER_NODE = 5;
 
 function spaces(num) {
     var str = "";
@@ -52,13 +52,14 @@ function spaces(num) {
     return str;
 }
 
-function nodeRow(nodesOfALevel,maxNodesInDeepestLevel) {
+function nodeRow(nodesOfALevel, maxNodesInDeepestLevel) {
     return nodesOfALevel.reduce(function (total, val) {
         if (!val)// return total +"|"+ spaces(SPACES_PER_NODE);
             val = { value: 'X' };
-        return total  + centerValue(val.value, SPACES_PER_NODE*maxNodesInDeepestLevel/nodesOfALevel.length);
+        return total + centerValue(val.value,Math.floor( SPACES_PER_NODE * maxNodesInDeepestLevel / nodesOfALevel.length));
     }, "");
 }
+
 function centerValue(val, rowLength) {
     var valLength = val.toString().length;
     var prefixLength = Math.floor((rowLength - valLength) / 2);
@@ -76,13 +77,16 @@ function getMaxNodeCount(deepestLevel) {
 
 BinaryTreePrinter.prototype.printTree = function (root) {
     var deepestLevel = this.findDeepestLevel(root);
+    console.log(`deepestLevel = ${deepestLevel}`);
     var maxNodesInLevel = Math.pow(2, deepestLevel);
+    console.log(`maxNodesInLevel = ${maxNodesInLevel}`);
     var maxSpaces = maxNodesInLevel * SPACES_PER_NODE;
-
+    console.log(`maxSpaces = ${maxSpaces}`);
     var levels = this.traverseLevelOrderCreateLevels(root, deepestLevel);
     console.log(levels);
     for (var l = 0; l < levels.length; l++) {
-        console.log(centerValue(nodeRow(levels[l],levels.length), maxSpaces));
+        var row = centerValue(nodeRow(levels[l], maxNodesInLevel ), maxSpaces);
+        console.log(row);
     }
 
 }

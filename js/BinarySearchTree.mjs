@@ -43,7 +43,7 @@ BinarySearchTree.prototype.insert = function (value) {
 
 BinarySearchTree.prototype.remove = function (value) {
 
-    return deleteRecursively(this._root, value);
+    this._root= deleteRecursively(this._root, value);
 
     function deleteRecursively(root, value) {
         if (!root) {
