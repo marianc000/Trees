@@ -77,17 +77,18 @@ function getMaxNodeCount(deepestLevel) {
 
 BinaryTreePrinter.prototype.printTree = function (root) {
     var deepestLevel = this.findDeepestLevel(root);
-    console.log(`deepestLevel = ${deepestLevel}`);
+ //   console.log(`deepestLevel = ${deepestLevel}`);
     var maxNodesInLevel = Math.pow(2, deepestLevel);
-    console.log(`maxNodesInLevel = ${maxNodesInLevel}`);
+  //  console.log(`maxNodesInLevel = ${maxNodesInLevel}`);
     var maxSpaces = maxNodesInLevel * SPACES_PER_NODE;
-    console.log(`maxSpaces = ${maxSpaces}`);
+ //   console.log(`maxSpaces = ${maxSpaces}`);
     var levels = this.traverseLevelOrderCreateLevels(root, deepestLevel);
-    console.log(levels);
+  //  console.log(levels);
     for (var l = 0; l < levels.length; l++) {
         var row = centerValue(nodeRow(levels[l], maxNodesInLevel ), maxSpaces);
         console.log(row);
     }
 
 }
-export { BinaryTreePrinter };
+
+export  var printer= new BinaryTreePrinter();
