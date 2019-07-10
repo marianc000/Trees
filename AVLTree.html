@@ -1,0 +1,51 @@
+<script>
+
+
+    (async () => {
+        const { AVLTree } = await import('./js/AVLTree.mjs');
+        const { printer } = await import('./js/BinaryTreePrinter.mjs');
+      //  var printer = new BinaryTreePrinter();
+        function makeTree() {
+            var avl = new AVLTree(1);
+            printer.printTree(avl);
+            avl.insert(2); printer.printTree(avl);
+            avl.insert(3); printer.printTree(avl);
+            avl.insert(4); printer.printTree(avl);
+            avl.insert(5); printer.printTree(avl);
+            avl.insert(123); printer.printTree(avl);
+            avl.insert(203); printer.printTree(avl);
+            avl.insert(2222); printer.printTree(avl);
+            console.log(avl);
+            return avl;
+        }
+
+        var bst1 = makeTree();
+
+        // console.log(bst1.findNode(3)); // true
+        // console.log(bst1.findNode(5)); // false
+        // console.log(bst1.findNode(1)); // false
+        // console.log("========================================");
+        //  bst1.traverseLevelOrder();
+
+
+        //    printer.printTree(bst1.getRoot());
+        // console.log("remove(3)========================================");
+        // bst1.remove(3);
+        // printer.printTree(bst1.getRoot());
+        // bst1 = makeTree();
+        // console.log("remove(8)========================================");
+        // bst1.remove(8);
+        // printer.printTree(bst1.getRoot());
+        // bst1 = makeTree();
+        // console.log("remove(6)========================================");
+        // bst1.remove(6);
+        // printer.printTree(bst1.getRoot());
+        // bst1 = makeTree();
+        // console.log("remove(1)========================================");
+        // bst1.remove(1);
+        // printer.printTree(bst1.getRoot());
+        // // console.log("========================================");
+        // // bst1.traverseLevelOrder();  
+        // // console.log(bst1.findNode(1)); // false
+    })();
+</script>
